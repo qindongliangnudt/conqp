@@ -37,14 +37,18 @@ int main (int argc, const char* argv[])
 		contrast_gen(contrast, T_UNIT);
 		do
 		{
-			scanf("%s", answer);
+			fgets(buf, sizeof(buf), stdin);
+			buf[T_UNIT] = '\0';
+			sscanf(buf, "%s", answer);
 		} while (strcmp(contrast, answer)); 
 	}
 	
 	contrast_gen(contrast, user_max - (i - 1) * T_UNIT);
 	do
 	{
-		scanf("%s", answer);
+		fgets(buf, sizeof(buf), stdin);
+		buf[user_max - (i - 1) * T_UNIT] = '\0';
+		sscanf(buf, "%s", answer);
 	} while (strcmp(contrast, answer));
 	t_end = time(NULL);
 	

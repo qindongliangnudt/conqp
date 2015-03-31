@@ -11,6 +11,16 @@ int ascii_gen(void)
 	return random_variable;
 }
 
+int get_min(int a, int b)
+{
+	if (a <= 0 || b <= 0)
+		return 0;
+	else
+	{
+		return a < b ? a : b; 
+	}
+}
+
 int main(int argc, const char* argv[])
 {
 	srand(time(0));
@@ -19,5 +29,9 @@ int main(int argc, const char* argv[])
 	{
 		printf("%c ", ascii_gen());
 	}
+	
+	printf("\n");
+	printf("get_min(-3, -5): %d", get_min(-3, -5));
+	
 	return 0;
 }
