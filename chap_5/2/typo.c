@@ -24,6 +24,8 @@ int main (int argc, const char* argv[])
 	
 	int i;
 	
+	double sec_per_ch;
+	
 	time_t t_start, t_end;
 	
 	printf("输入本次练习字符数（<100000）：\n");
@@ -33,7 +35,8 @@ int main (int argc, const char* argv[])
 	
 	t_start = time(NULL);
 	for (i = 1; i*T_UNIT <= user_max; i++)
-	{		
+	{	
+		printf("LINE %d:\n", i);	
 		contrast_gen(contrast, T_UNIT);
 		do
 		{
@@ -45,6 +48,7 @@ int main (int argc, const char* argv[])
 	
 	if (user_max - (i - 1) * T_UNIT > 0)
 	{
+		printf("LINE %d:\n", i);
 		contrast_gen(contrast, user_max - (i - 1) * T_UNIT);
 		do
 		{
@@ -56,7 +60,9 @@ int main (int argc, const char* argv[])
 	
 	t_end = time(NULL);
 	
-	printf("本次用时：%ld秒",t_end - t_start);
+	printf("本次用时：%ld秒\n",t_end - t_start);
+	sec_per_ch = (double)(t_end - t_start) / (double)user_max;
+	printf("本次平均每个字符用时：%f秒\n", sec_per_ch);
 
 	return 0;
 }
