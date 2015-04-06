@@ -7,7 +7,7 @@
 #define ASCII_MIN 32
 #define C_MAX 100000
 #define BUF_MAX 65536
-#define T_UNIT 50
+#define T_UNIT 10
 
 void contrast_gen(char*, int);
 int  ascii_gen(void);
@@ -43,13 +43,17 @@ int main (int argc, const char* argv[])
 		} while (strcmp(contrast, answer)); 
 	}
 	
-	contrast_gen(contrast, user_max - (i - 1) * T_UNIT);
-	do
+	if (user_max - (i - 1) * T_UNIT > 0)
 	{
-		fgets(buf, sizeof(buf), stdin);
-		buf[user_max - (i - 1) * T_UNIT] = '\0';
-		sscanf(buf, "%s", answer);
-	} while (strcmp(contrast, answer));
+		contrast_gen(contrast, user_max - (i - 1) * T_UNIT);
+		do
+		{
+			fgets(buf, sizeof(buf), stdin);
+			buf[user_max - (i - 1) * T_UNIT] = '\0';
+			sscanf(buf, "%s", answer);
+		} while (strcmp(contrast, answer));
+	}
+	
 	t_end = time(NULL);
 	
 	printf("本次用时：%ld秒",t_end - t_start);
