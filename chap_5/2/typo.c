@@ -39,7 +39,7 @@ int main (int argc, const char* argv[])
 		{
 			fgets(buf, sizeof(buf), stdin);
 			buf[T_UNIT] = '\0';
-			sscanf(buf, "%s", answer);
+			strcpy(answer, buf);
 		} while (strcmp(contrast, answer)); 
 	}
 	
@@ -50,7 +50,7 @@ int main (int argc, const char* argv[])
 		{
 			fgets(buf, sizeof(buf), stdin);
 			buf[user_max - (i - 1) * T_UNIT] = '\0';
-			sscanf(buf, "%s", answer);
+			strcpy(answer, buf);
 		} while (strcmp(contrast, answer));
 	}
 	
