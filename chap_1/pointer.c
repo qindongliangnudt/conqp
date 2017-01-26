@@ -6,12 +6,13 @@ int main (int argc, const char* argv[])
 	int piyo = 10;
 	int* hoge_p;
 	int* piyo_p;
-	
+	int* p;	
 	/*输出每个变量的地址*/
 	printf("&hoge..%p\n", &hoge);
 	printf("&piyo..%p\n", &piyo);
 	printf("&hoge_p..%p\n", &hoge_p);
 	printf("&piyo_p..%p\n", &piyo_p);
+	printf("&p     ..%p\n", &p);
 	
 	/*将hoge的地址赋值给hoge_p*/
 	hoge_p = &hoge;
