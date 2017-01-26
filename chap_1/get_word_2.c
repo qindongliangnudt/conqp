@@ -63,8 +63,12 @@ int get_word(char* buf, int buf_size, FILE* fp)
 int main (int argc, const char* argv[])
 {
 	char buf[32];
-	
-	while (get_word(buf, 32, stdin) != EOF)
+	FILE* fp = fopen(argv[1], "r");
+    	if(!fp) {
+       		 perror("File opening failed");
+       		 return EXIT_FAILURE;
+	}	
+	while (get_word(buf, 32, fp) != EOF)
 	{
 		printf("<<%s>>\n", buf);
 	}
